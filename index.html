@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Typing Speed Test</title>
+<style>
+body{font-family:Arial;background:#171717;color:white;padding:25px}
+main{max-width:700px;margin:auto;background:#262626;padding:30px;border-radius:16px}
+#sample{background:#404040;padding:20px;border-radius:10px;line-height:1.8;color:#fde047}
+textarea{width:100%;height:150px;padding:15px;box-sizing:border-box;border-radius:8px;margin:15px 0}
+button{background:#eab308;color:black;border:0;padding:12px 20px;border-radius:6px;cursor:pointer;font-weight:bold}
+#result{line-height:2;color:#fde047}
+</style>
+</head>
+<body>
+<main>
+<h1>Typing Speed Test</h1>
+<p>Practice typing and improve your speed.</p>
+<div id="sample"></div>
+<textarea id="typing" placeholder="Type the text shown above..." oninput="checkTyping()"></textarea>
+<div id="result">Speed: 0 WPM | Accuracy: 0%</div>
+<button onclick="restart()">Restart Test</button>
+</main>
+<script>
+const passages=[
+ "Technology helps people learn new skills and discover creative opportunities every day.",
+ "Success comes from consistent practice patience and the courage to keep moving forward.",
+ "The best way to improve your abilities is to practice a little every single day."
+];
+let sample="";
+let started=0;
+function restart(){
+ sample=passages[Math.floor(Math.random()*passages.length)];
+ document.getElementById("sample").textContent=sample;
+ const input=document.getElementById("typing");
+ input.value="";
+ input.disabled=false;
+ started=0;
+ document.getElementById("result").textContent="Speed: 0 WPM | Accuracy: 0%";
+}
+function checkTyping(){
+ const input=document.getElementById("typing");
+ const text=input.value;
+ if(!started) started=Date.now();
+ let correct=0;
+ for(let i=0;i<text.length;i++){
+  if(text[i]===sample[i]) correct++;
+ }
+ const minutes=Math.max((Date.now()-started)/60000,1/60);
+ const wpm=Math.round(correct/5/minutes);
+ const accuracy=text.length?Math.round(correct/text.length*100):0;
+ document.getElementById("result").textContent=
+ "Speed: "+wpm+" WPM | Accuracy: "+accuracy+"%";
+ if(text===sample){
+  input.disabled=true;
+  document.getElementById("result").textContent+=" | Completed!";
+ }
+}
+restart();
+</script>
+</body>
+</html>
