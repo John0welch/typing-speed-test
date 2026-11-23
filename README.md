@@ -1,23 +1,24 @@
-# Typing Speed Test
+## Typing Test Guide
 
-An application for practicing and measuring typing performance.
+This application helps users practice
+their typing skills.
 
-## Features
+### Performance Measurements
 
-- Sample passages
-- Words per minute
+- Words per minute (WPM)
 - Typing accuracy
+- Correct characters
+- Incorrect characters
 
-## How to Use
+### How to Use
 
-Type the displayed passage to measure your performance.
+1. Start a typing session.
+2. Read the displayed passage.
+3. Type the text in the input area.
+4. Review your performance results.
 
-## Technologies
+### Practice Recommendations
 
-- HTML
-- CSS
-- JavaScript
-
-## Running Locally
-
-Open `index.html` in a modern web browser.
+- Focus on accuracy first.
+- Maintain a comfortable typing speed.
+- Practice regularly.
