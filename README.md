@@ -22,3 +22,12 @@ their typing skills.
 - Focus on accuracy first.
 - Maintain a comfortable typing speed.
 - Practice regularly.
+## Manual Testing Checklist
+
+- [ ] Complete a short typing test and review the score.
+- [ ] Check how incorrect characters affect accuracy.
+- [ ] Restart the session and verify its statistics reset.
+
+### Test Notes
+
+Record the observed result and any reproducible issue after running the tests.
